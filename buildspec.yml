@@ -1,12 +1,16 @@
 version: 0.1
 phases:
   install:
-    runtime-versions:
-      nodejs: 10
-      python: 3.7
+    #runtime-versions:
+    #  nodejs: 10
+    #  python: 3.7
     commands:
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli
+      - node --version
+      - python --version
+      - aws --version
+      - sam --version
       #- pip install --user aws-sam-cli
       #- USER_BASE_PATH=$(python -m site --user-base)
       - pip install aws-sam-cli
