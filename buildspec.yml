@@ -17,21 +17,24 @@ phases:
       - pip install aws-sam-cli
       - export PATH=$PATH:$USER_BASE_PATH/bin
       - npm install 
+  pre_build:
+    commands:
+      - echo '========================================='
+      - echo '==  pre_build'
+      - echo '========================================='
   build:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
       - sam build
-  test:
+
+  post_build:
     commands:
+      - echo '========================================='
+      - echo '==  post_build'
+      - echo '========================================='
       - npm run test
-  coverage:
-    commands:
       - npm run coverage
-  #sonar:
-  #  commands:
-  #    - npm run sonar-scanner
-  package:
-    commands:
+      #- npm run sonar-scanner
       - aws cloudformation package --template-file template.yml --s3-bucket itg-bucket-one --output-template-file package.yml
 
 artifacts:
