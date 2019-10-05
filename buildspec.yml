@@ -17,15 +17,18 @@ phases:
       - pip install aws-sam-cli
       - export PATH=$PATH:$USER_BASE_PATH/bin
       - npm install 
+
   pre_build:
     commands:
       - echo '========================================='
       - echo '==  pre_build'
       - echo '========================================='
+
   build:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
       - sam build
+
 
   post_build:
     commands:
