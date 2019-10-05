@@ -1,0 +1,16 @@
+{
+    "version": 0.0,
+    "resources": [
+        {
+            "HelloWorldNodeFunction": {
+                "type": "AWS::Lambda::Function",
+                "properties": {
+                    "name": "HelloWorldNodeFunction",
+                    "alias": "HelloWorldNodeFunctionAlias",
+                    "currentversion": "$latest",
+                    "targetversion": "$latest"
+                }
+            }
+        }
+    ]
+}

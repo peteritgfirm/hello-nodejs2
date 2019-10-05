@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Sample SAM Template for sam-app
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  HelloWorldNode2Function:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://itg-bucket-one/654197a8a52ba9775ee324e3ee9b00c1
+      Handler: app.lambdaHandler
+      Runtime: nodejs8.10
+      Events:
+        HelloWorldNode2:
+          Type: Api
+          Properties:
+            Path: /hello2
+            Method: get
+Outputs:
+  HelloWorldNode2Api:
+    Description: API Gateway endpoint URL for Prod stage for Hello World 2 function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hellonode2/
+  HelloWorldNode2Function:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldNode2Function
+      - Arn
+  HelloWorldNode2FunctionIamRole:
+    Description: Implicit IAM Role created for Hello World 2 function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldNode2FunctionRole
+      - Arn
