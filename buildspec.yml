@@ -40,5 +40,6 @@ phases:
 artifacts:
   type: zip
   files: 
+    - buildspec.yml
     - template.yml
     - package.yml
