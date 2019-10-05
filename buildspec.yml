@@ -29,7 +29,6 @@ phases:
       # Use AWS SAM to package the application by using AWS CloudFormation
       - sam build
 
-
   post_build:
     commands:
       - echo '========================================='
