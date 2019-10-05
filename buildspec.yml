@@ -39,6 +39,7 @@ phases:
       #- npm run sonar-scanner
       - aws cloudformation package --template-file template.yml --s3-bucket itg-bucket-one --output-template-file package.yml
 
+
 artifacts:
   type: zip
   files: 
