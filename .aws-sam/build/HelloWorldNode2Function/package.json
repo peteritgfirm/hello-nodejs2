@@ -1,0 +1,46 @@
+{
+  "name": "hello_world",
+  "version": "1.0.0",
+  "description": "hello world sample for NodeJS",
+  "main": "app.js",
+  "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "scripts": {
+    "test-mocha": "mocha tests/unit/",
+    "sonar-scanner": "sonar-scanner",
+    "start": "node server.js",
+    "test": "mocha ./test/**/*.js --timeout 10000 --exit",
+    "test-one": "mocha ./test/test.js --timeout 10000 --exit",
+    "_comment": "Note: --exit in the test element is to force the test program to exit after finishing in case we use done()",
+    "coverage": "nyc --reporter=lcov --reporter=text-lcov npm test"
+  },
+  "nyc": {
+    "_comment": "Purpose of this part: to do code coverage within Mocha/Chai using Istanbul",
+    "register": "babel-register",
+    "include": [
+      "**/*.js",
+      "./*.js"
+    ],
+    "exclude": [
+      "**/node_modules/**",
+      "**/test/**",
+      "**/coverage/**"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "date-and-time": "^0.10.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.1",
+    "nyc": "^14.1.1",
+    "sonar-scanner": "^3.1.0",
+    "sonarqube": "0.0.1"
+  }
+}
