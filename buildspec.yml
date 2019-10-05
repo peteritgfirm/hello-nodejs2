@@ -1,11 +1,25 @@
 version: 0.1
 phases:
   install:
+    runtime-versions:
+      nodejs: 10
+      python: 3.7
     commands:
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade awscli
+      #- pip install --user aws-sam-cli
+      #- USER_BASE_PATH=$(python -m site --user-base)
+      - pip install aws-sam-cli
+      - export PATH=$PATH:$USER_BASE_PATH/bin
       - npm install 
+  build:
+    commands:
+      # Use AWS SAM to package the application by using AWS CloudFormation
+      - sam build
       - aws cloudformation package --template-file template.yml --s3-bucket itg-bucket-one --output-template-file package.yml
-    artifacts:
-      type: zip
-      files: 
-        - template.yml
-        - package.yml
+
+artifacts:
+  type: zip
+  files: 
+    - template.yml
+    - package.yml
