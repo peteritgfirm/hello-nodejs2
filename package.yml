@@ -8,7 +8,7 @@ Resources:
   HelloWorldNode2Function:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://itg-bucket-one/654197a8a52ba9775ee324e3ee9b00c1
+      CodeUri: s3://itg-bucket-one/7149bed46639828d33c09ccb729e8801
       Handler: app.lambdaHandler
       Runtime: nodejs8.10
       Events:
