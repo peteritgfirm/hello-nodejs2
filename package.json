@@ -38,7 +38,7 @@
     "chai-http": "^4.3.0",
     "date-and-time": "^0.10.0",
     "express": "^4.17.1",
-    "mocha": "^6.2.1",
+    "mocha": "^10.2.0",
     "nyc": "^14.1.1",
     "sonar-scanner": "^3.1.0",
     "sonarqube": "0.0.1"
